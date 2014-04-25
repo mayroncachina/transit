@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="br.com.paparango" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Transit</name>
+    <description>
+        Transit
+    </description>
+    <author email="mayron@cachina.com.br" href="http://www.cachina.com.br">
+        Mayron Cachina
+    </author>
+
+    <preference name="permissions" value="none" />
+    <preference name="phonegap-version" value="3.3.0" />
+    <preference name="orientation" value="portrait" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+
+
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.contacts" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.network-information"/>
+    <gap:plugin name="org.apache.cordova.camera">
+
+    
+    <access origin="*"  />
+    <content src="index.html" />
+
+</widget>
