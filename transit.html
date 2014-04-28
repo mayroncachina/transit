@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -70,7 +69,23 @@
 
 var map;
 
-
+  function getAddress(latLng) {
+    geocoder.geocode( {'latLng': latLng},
+      function(results, status) {
+        if(status == google.maps.GeocoderStatus.OK) {
+          if(results[0]) {
+            document.getElementById("logradouro").value = results[0].formatted_address;
+          }
+          else {
+            document.getElementById("logradouro").value = "No results";
+          }
+        }
+        else {
+          document.getElementById("logradouro").value = status;
+        }
+    });
+  }
+ 
 
 function initialize() {
 
@@ -163,6 +178,8 @@ function handleNoGeolocation(errorFlag) {
   var infowindow = new google.maps.InfoWindow(options);
 
   map.setCenter(options.position);
+  
+  getAddress(options.position)
 
 }
 
