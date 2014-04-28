@@ -70,7 +70,7 @@
 var map;
 
   function getAddress(latLng) {
-  	alert(latLng)
+  	
     geocoder.geocode( {'latLng': latLng},
       function(results, status) {
         if(status == google.maps.GeocoderStatus.OK) {
@@ -131,7 +131,7 @@ function initialize() {
 
 
       map.setCenter(pos);
-      getAddress(position)
+      getAddress(pos)
 
     }, function() {
 
@@ -181,7 +181,7 @@ function handleNoGeolocation(errorFlag) {
 
   map.setCenter(options.position);
   
-  getAddress(options.position)
+  
 
 }
 
