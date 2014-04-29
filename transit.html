@@ -136,7 +136,7 @@ function initialize() {
 
       });
 
-
+      $("#localizacao").val(position.coords.latitude+","+position.coords.longitude);
 
       map.setCenter(pos);
       getAddress(pos)
@@ -251,8 +251,20 @@ google.maps.event.addDomListener(window, 'load', initialize);
     }
 
     function postar(){
-      $.post( "http:///sandbox.cachina.com.br/transit/index.php",{imagem:$("#smallImage").attr('src')}, function( data ) {
-        alert( data );
+      $.post( "http:///sandbox.cachina.com.br/transit/index.php",
+
+          {
+            imagem : $("#smallImage").attr('src'),
+            bairro : $("#bairro").val(),
+            logradouro : $("#logradouro").val(),
+            cidade : $("#cidade").val(),
+            localizacao : $("#localizacao").val(),
+
+          }, 
+          function( data ) {
+
+            alert( data );
+
       });
     }
 
@@ -323,6 +335,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
             <input type="text" placeholder="Logradouro" name="logradouro" id="logradouro"/>
 
             <!--<input type="text" placeholder="Número" name="numero"/>-->
+            <input type="text" name="localizacao" id="localizacao"/>
 
             <input type="text" placeholder="Bairro" name="bairro" id="bairro"/>
 
