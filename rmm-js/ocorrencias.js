@@ -1,7 +1,7 @@
 function gravarOcorrencia(){
 	
 
-	var lib = new localStorageDB("transit-1", localStorage);
+	var lib = new localStorageDB("transit1", localStorage);
 
 	var d = new Date();
 	var n = d.getDay()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds()+""+d.getMilliseconds();
@@ -15,6 +15,15 @@ function gravarOcorrencia(){
 	}
 
 	alert(lib.isNew())
+
+	var lzwCompress = window.lzwCompress;
+
+	var compressed = lzwCompress.pack($("#smallImage").attr('src'));
+	console.log(compressed);
+	//var original = lzwCompress.unpack(compressed);
+	//console.log(original);
+
+	
 	json = {
 	        cod : codigo,
 	        placa :  $("#placa").val(),
@@ -24,13 +33,12 @@ function gravarOcorrencia(){
 	        cidade : $("#cidade").val(),
 	        localizacao : $("#localizacao").val(),
 	        infracao :  $("#infracao").val(),
-	        imagem : $("#smallImage").attr('src'),
+	        imagem : compressed,
 	        data: d,
 
 	      };
 
 	alert(json + 'antes de cadastrar')
-	/*
 	lib.insert("autoacoes", json);
 
 	lib.commit();
