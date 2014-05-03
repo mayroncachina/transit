@@ -121,7 +121,10 @@ if( lib.isNew() ) {
     // commit the database to localStorage
     // all create/drop/insert/update/delete operations should be committed
     lib.commit();
-    alert('funcionou' + lib)
+    
+}
+
+alert('funcionou' + lib)
 
 
     var lista = lib.query("books");
@@ -129,7 +132,11 @@ if( lib.isNew() ) {
 
   $(".qtd").html(qtdRegistro);
 
-}
+  var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
+  for (var i = lista.length - 1; i >= 0; i--) {
+    linha += "<li>"+lista[i].code+" - ("+ lista[i].data +")</li>";
+  };
+
   </script>
 </body>
 
