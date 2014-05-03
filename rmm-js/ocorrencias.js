@@ -53,8 +53,8 @@ function gravarOcorrencia(){
 function getQtdMultas(){
 	
 
-/*
-	var lib = new localStorageDB("t0", localStorage);
+
+	var lib = new localStorageDB("transit1", localStorage);
 	if( lib.isNew() ) {
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
@@ -69,7 +69,7 @@ function getQtdMultas(){
 	console.log(linha);
 	$("#multas").html(linha);
 	$('#multas').listview('refresh');
-*/
+
 }
 
 function postar(){
