@@ -46,7 +46,7 @@ function gravarOcorrencia(){
     $(".main").hide();
     $(".ocorrencia").html(codigo);
     $("#retorno").show();
-    */
+    
 
 }
 
