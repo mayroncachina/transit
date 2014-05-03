@@ -123,6 +123,17 @@ if( lib.isNew() ) {
     // all create/drop/insert/update/delete operations should be committed
     lib.commit();
     alert('funcionou' + lib)
+
+
+    var lista = lib.query("books");
+  var qtdRegistro = lib.rowCount("books");
+
+  $(".qtd").html(qtdRegistro);
+
+  var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
+  for (var i = lista.length - 1; i >= 0; i--) {
+    linha += "<li>"+lista[i].code+" - ("+ lista[i].title +")</li>";
+  };
 }
   </script>
 </body>
