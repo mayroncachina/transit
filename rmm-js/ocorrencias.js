@@ -23,7 +23,7 @@ function gravarOcorrencia(){
 	        cidade : $("#cidade").val(),
 	        localizacao : $("#localizacao").val(),
 	        infracao :  $("#infracao").val(),
-	        imagem : $("#smallImage").attr('src'),
+	        //imagem : $("#smallImage").attr('src'),
 	        data: d,
 
 	      };
@@ -32,7 +32,7 @@ function gravarOcorrencia(){
 
 	lib.commit();
 
-    $("#main").hide();
+    $(".main").hide();
     $(".ocorrencia").html(codigo);
     $("#retorno").show();
 
@@ -88,7 +88,7 @@ function postar(){
 	  });
 
 	}else{
-		alert('json')
+	
 		gravarOcorrencia();
 	}
 }
