@@ -1,7 +1,7 @@
 function gravarOcorrencia(){
 	
 
-	var lib = new localStorageDB("t0", localStorage);
+	var lib = new localStorageDB("transit-1", localStorage);
 
 	var d = new Date();
 	var n = d.getDay()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds()+""+d.getMilliseconds();
@@ -10,6 +10,7 @@ function gravarOcorrencia(){
 
 	// Check if the database was just created. Useful for initial database setup
 	if( lib.isNew() ) {
+		alert('nova tabela')
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 
@@ -23,11 +24,13 @@ function gravarOcorrencia(){
 	        cidade : $("#cidade").val(),
 	        localizacao : $("#localizacao").val(),
 	        infracao :  $("#infracao").val(),
-	        //imagem : $("#smallImage").attr('src'),
+	        imagem : $("#smallImage").attr('src'),
 	        data: d,
 
 	      };
 
+	alert(json + 'antes de cadastrar')
+	/*
 	lib.insert("autoacoes", json);
 
 	lib.commit();
@@ -35,12 +38,14 @@ function gravarOcorrencia(){
     $(".main").hide();
     $(".ocorrencia").html(codigo);
     $("#retorno").show();
+    */
 
 }
 
 function getQtdMultas(){
 	
 
+/*
 	var lib = new localStorageDB("t0", localStorage);
 	if( lib.isNew() ) {
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
@@ -49,7 +54,6 @@ function getQtdMultas(){
 	var qtdRegistro = lib.rowCount("autoacoes");
 
 	$(".qtd").html(qtdRegistro);
-/*
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
 	for (var i = lista.length - 1; i >= 0; i--) {
 		linha += "<li>"+lista[i].cod+" - ("+ lista[i].data +")</li>";
