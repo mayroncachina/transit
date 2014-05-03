@@ -30,26 +30,29 @@
 
   </style>
 
-  
+
 
   <link rel="stylesheet" href="css/reset.css" type="text/css"/>
 
   <link rel="stylesheet" href="css/template.css" type="text/css"/>
 
-  
+
 
   <link rel="stylesheet" href="rmm-css/responsivemobilemenu.css" type="text/css"/>
 
-  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
   <script type="text/javascript" src="rmm-js/responsivemobilemenu.js"></script>
   <script type="text/javascript" src="rmm-js/localstoragedb.js"></script>
+  <script type="text/javascript" src="rmm-js/ocorrencias.js"></script>
 
 </head>
 
 <body>
 
-  
+
 
   <div class="header" align="center">
 
@@ -57,15 +60,39 @@
 
   </div>
 
-  <?php include "menu.php"; ?>
+  <div class="rmm" style="top:20px">
+
+     <ul>
+
+      <li><a href='home.html'>Início</a></li>
+
+      <li><a href='transit.html'>Registrar Infração</a></li>
+
+      <li><a href='#'>Ver Infrações</a></li>
+
+      <li><a href='exportar.html'>Exportar</a></li>
+
+      <li><a href='index.html'>Sair</a></li>
+
+    </ul>
+
+  </div>
+
 
   <div class="main" align="center">
 
-    <p>Exportando infrações...</p>
+    <p>EXPORTANDO INFRAÇÕES | 1 de <span class="qtd">X</span> </p>
 
     <img src="images/loading.gif" />
-  </div>
 
+
+    <ul data-role="listview" data-inset="true" id="multas" data-theme="a" data-divider-theme="e" data-count-theme="b"></ul>
+
+
+  </div>
+  <script type="text/javascript">
+    getQtdMultas();
+  </script>
 </body>
 
 </html>

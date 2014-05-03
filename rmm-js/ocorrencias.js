@@ -40,6 +40,26 @@ function gravarOcorrencia(){
 	console.log(lib.query("autoacoes"));
 }
 
+function getQtdMultas(){
+	
+
+	var lib = new localStorageDB("t0", localStorage);
+
+	var lista = lib.query("autoacoes");
+	var qtdRegistro = lib.rowCount("autoacoes");
+
+	$(".qtd").html(qtdRegistro);
+
+	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
+	for (var i = lista.length - 1; i >= 0; i--) {
+		linha += "<li>"+lista[i].cod+" - ("+ lista[i].data +")</li>";
+	};
+
+	console.log(linha);
+	$("#multas").html(linha);
+	//$('#listaMulta').listview('refresh');
+}
+
 function postar(){
 
 	var internet = false;
