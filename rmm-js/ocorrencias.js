@@ -13,6 +13,7 @@ function gravarOcorrencia(){
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 
+	alert(lib.isNew())
 	json = {
 	        cod : codigo,
 	        placa :  $("#placa").val(),
@@ -30,13 +31,11 @@ function gravarOcorrencia(){
 	lib.insert("autoacoes", json);
 
 	lib.commit();
-
+	alert('ok')
     $(".main").hide();
     $(".ocorrencia").html(codigo);
     $("#retorno").show();
 
-	console.log("--------------------------------------------");
-	console.log(lib.query("autoacoes"));
 }
 
 function getQtdMultas(){
@@ -50,15 +49,15 @@ function getQtdMultas(){
 	var qtdRegistro = lib.rowCount("autoacoes");
 
 	$(".qtd").html(qtdRegistro);
-
+/*
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
 	for (var i = lista.length - 1; i >= 0; i--) {
 		linha += "<li>"+lista[i].cod+" - ("+ lista[i].data +")</li>";
 	};
-
 	console.log(linha);
 	$("#multas").html(linha);
 	$('#multas').listview('refresh');
+*/
 }
 
 function postar(){
