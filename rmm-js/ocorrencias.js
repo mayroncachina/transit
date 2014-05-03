@@ -10,10 +10,9 @@ function gravarOcorrencia(){
 
 	// Check if the database was just created. Useful for initial database setup
 	if( lib.isNew() ) {
-
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
-
 	}
+
 	json = {
 	        cod : codigo,
 	        placa :  $("#placa").val(),
@@ -44,7 +43,9 @@ function getQtdMultas(){
 	
 
 	var lib = new localStorageDB("t0", localStorage);
-
+	if( lib.isNew() ) {
+	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
+	}
 	var lista = lib.query("autoacoes");
 	var qtdRegistro = lib.rowCount("autoacoes");
 
@@ -57,7 +58,7 @@ function getQtdMultas(){
 
 	console.log(linha);
 	$("#multas").html(linha);
-	//$('#listaMulta').listview('refresh');
+	$('#multas').listview('refresh');
 }
 
 function postar(){

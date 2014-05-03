@@ -134,8 +134,9 @@ alert('funcionou' + lib)
 
   var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
   for (var i = lista.length - 1; i >= 0; i--) {
-    linha += "<li>"+lista[i].code+" - ("+ lista[i].data +")</li>";
+    linha += "<li>"+lista[i].code+" - ("+ lista[i].year +")</li>";
   };
+  $('#multas').listview('refresh');
 
   </script>
 </body>
