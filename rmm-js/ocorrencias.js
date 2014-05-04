@@ -102,7 +102,7 @@ function exportarMultas(){
 function exportar(obj){
 
 	var lzwCompress = window.lzwCompress;
-	var original = lzwCompress.unpack(obj[i].imagem);
+	var original = lzwCompress.unpack(obj.imagem);
 
 	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
 
