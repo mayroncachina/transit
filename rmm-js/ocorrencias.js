@@ -91,7 +91,6 @@ function exportarMultas(){
 	$(".txtExport").show();
 	for (var i = listaAutoacoes.length - 1; i >= 0; i--) {
 
-		$(".log").append("<p>ENVIANDO "+listaAutoacoes[i].cod+"</p>");
 		exportar(listaAutoacoes[i]);
 		sleep(500);
 	};
@@ -101,31 +100,32 @@ function exportarMultas(){
 
 
 function exportar(obj){
+console.log(obj.cod)
 
-$(".log").append("<p>TESTE</p>")
+	var lzwCompress = window.lzwCompress;
+	var original = lzwCompress.unpack(lista[i].imagem);
 
-/*
 	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
 
 	      {
 	      	exportar : true,
-	      	codigo : codigo,
-	        imagem : imagem,
-	        bairro : bairro,
-	        logradouro : logradouro,
-	        cidade : cidade,
-	        localizacao : localizacao,
-	        placa :  placa,
+	      	codigo : obj.codigo,
+	        imagem : obj.original,
+	        bairro : obj.bairro,
+	        logradouro : obj.logradouro,
+	        cidade : obj.cidade,
+	        localizacao : obj.localizacao,
+	        placa :  obj.placa,
 	        veiculo :  "",
-	        infracao :  infracao,
+	        infracao :  obj.infracao,
 
 	      }, 
 	      function( data ) {
 
-	        $(".log").append("<p>")
+	        $(".log").append("<p>ENVIADO "+listaAutoacoes[i].cod+"</p>");
 
 	  });
-*/
+
 
 }
 
