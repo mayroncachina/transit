@@ -1,5 +1,5 @@
 var lib = new localStorageDB("transit1", localStorage);
-var listaAutoacoes = null;
+var listaAutoacoes = [];
 
 function gravarOcorrencia(){
 
@@ -71,6 +71,7 @@ function getMultas(){
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
 	for (var i = lista.length - 1; i >= 0; i--) {
 		listaAutoacoes.push(lista[i]);
+		console.log(listaAutoacoes)
 		var original = lzwCompress.unpack(lista[i].imagem);
 		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"<span class='ui-li-count'><img src='images/sync.png'></span></h2> <p>"+ lista[i].data +"</p></li>";
 	};
