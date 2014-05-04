@@ -19,7 +19,6 @@ function gravarOcorrencia(){
 	var lzwCompress = window.lzwCompress;
 
 	var compressed = lzwCompress.pack($("#smallImage").attr('src'));
-	console.log(compressed);
 	//var original = lzwCompress.unpack(compressed);
 	//console.log(original);
 
@@ -38,11 +37,11 @@ function gravarOcorrencia(){
 
 	      };
 
-	alert(json + 'antes de cadastrar')
+
 	lib.insert("autoacoes", json);
 
 	lib.commit();
-	alert('ok')
+
     $(".main").hide();
     $(".ocorrencia").html(codigo);
     $("#retorno").show();
@@ -62,9 +61,16 @@ function getQtdMultas(){
 	var qtdRegistro = lib.rowCount("autoacoes");
 
 	$(".qtd").html(qtdRegistro);
+
+	var lzwCompress = window.lzwCompress;
+
+
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
 	for (var i = lista.length - 1; i >= 0; i--) {
-		linha += "<li><img src='http://www.w3schools.com/jquerymobile/chrome.png'>"+lista[i].cod+" - ("+ lista[i].data +")</li>";
+	
+		var original = lzwCompress.unpack(lista[i].imagem);
+		console.log(original);
+		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"</h2> <p>"+ lista[i].data +"</p></li>";
 	};
 	console.log(linha);
 	$("#multas").html(linha);
