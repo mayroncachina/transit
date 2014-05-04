@@ -67,12 +67,51 @@ function getQtdMultas(){
 	for (var i = lista.length - 1; i >= 0; i--) {
 	
 		var original = lzwCompress.unpack(lista[i].imagem);
-		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"<span class='ui-li-count'>25</span></h2> <p>"+ lista[i].data +"</p></li>";
+		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"<span class='ui-li-count'><img src='images/sync.png'></span></h2> <p>"+ lista[i].data +"</p></li>";
 	};
 
 
 	$("#multas").html(linha);
 	$('#multas').listview('refresh');
+
+}
+function exportarMultas(){
+
+	$("#export").show();
+	$(".log").append("<p>Validando Conexão com a Internet...</p>")
+	sleep(2000);
+	$("#txtExport").show();
+
+
+}
+
+
+function exportar(codigo, imagem, bairro, logradouro, cidade, localizacao, placa, veiculo, infracao){
+
+$(".log").append("<p>TESTE</p>")
+
+/*
+	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
+
+	      {
+	      	exportar : true,
+	      	codigo : codigo,
+	        imagem : imagem,
+	        bairro : bairro,
+	        logradouro : logradouro,
+	        cidade : cidade,
+	        localizacao : localizacao,
+	        placa :  placa,
+	        veiculo :  "",
+	        infracao :  infracao,
+
+	      }, 
+	      function( data ) {
+
+	        $(".log").append("<p>")
+
+	  });
+*/
 
 }
 
@@ -120,3 +159,12 @@ $( document ).ajaxStart(function() {
 $( document ).ajaxStop(function() {
   $( "#loading" ).hide();
 });
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
