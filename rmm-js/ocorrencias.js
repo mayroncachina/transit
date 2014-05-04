@@ -84,6 +84,7 @@ function getMultas(){
 function exportarMultas(){
 
 	$("#export").show();
+	$("#multas").hide();
 	$(".log").append("<p>Validando Conexão com a Internet...</p>")
 	getQtdMultas();
 	sleep(2000);
@@ -91,7 +92,7 @@ function exportarMultas(){
 	for (var i = listaAutoacoes.length - 1; i >= 0; i--) {
 
 		$(".log").append("<p>ENVIANDO "+listaAutoacoes[i].cod+"</p>");
-		exportar(lista[i]);
+		exportar(listaAutoacoes[i]);
 		sleep(500);
 	};
 
