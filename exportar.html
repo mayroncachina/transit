@@ -31,7 +31,6 @@
   </style>
 
 
-<script src="http://debug.phonegap.com/target/target-script-min.js#mayron"></script>
 
   <link rel="stylesheet" href="css/reset.css" type="text/css"/>
 
@@ -88,12 +87,16 @@
 
 
   <div class="main" align="center">
+  
+    <div id="export" style="display:none">
+        <p>EXPORTANDO INFRAÇÕES | 1 de <span class="qtd">X</span> </p>
 
-    <p>EXPORTANDO INFRAÇÕES | 1 de <span class="qtd">X</span> </p>
+        <img src="images/loading.gif" />
+        * validar conexao antes
+        <div class="log"></div>
+    </div>
 
-    <img src="images/loading.gif" />
-    * validar conexao antes
-
+    <button>Exportar Multas</button>
     <ul data-role="listview" data-inset="true" id="multas" data-theme="a" data-divider-theme="e" data-count-theme="b"></ul>
 
 

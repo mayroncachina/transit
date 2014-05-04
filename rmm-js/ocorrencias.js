@@ -10,7 +10,6 @@ function gravarOcorrencia(){
 
 	// Check if the database was just created. Useful for initial database setup
 	if( lib.isNew() ) {
-		alert('nova tabela')
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 
@@ -64,15 +63,14 @@ function getQtdMultas(){
 
 	var lzwCompress = window.lzwCompress;
 
-
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
 	for (var i = lista.length - 1; i >= 0; i--) {
 	
 		var original = lzwCompress.unpack(lista[i].imagem);
-		console.log(original);
-		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"</h2> <p>"+ lista[i].data +"</p></li>";
+		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"<span class='ui-li-count'>25</span></h2> <p>"+ lista[i].data +"</p></li>";
 	};
-	console.log(linha);
+
+
 	$("#multas").html(linha);
 	$('#multas').listview('refresh');
 
@@ -113,7 +111,7 @@ function postar(){
 
 
 $( document ).ajaxStart(function() {
-  $( "#loading" ).text( "Triggered ajaxStart handler." );
+  //$( "#loading" ).text( "Triggered ajaxStart handler." );
   $("#main").hide();
   $("#retorno").hide();
   $( "#loading" ).show();
