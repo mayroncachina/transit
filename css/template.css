@@ -1,38 +1,78 @@
-body{
-	background:url(../images/texture/4.jpg) repeat;
-}
-
-.header{
-	background:#FFF;
-	background:url(../images/bg-blue.jpg) no-repeat;
-	
-   background-size:cover;
-	width:100%;
-	height:60px;
-	padding-top:7px;
-}
-
-.main{
-	width:95%;
-	margin-top:40px;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:40px;
-}
-
- .basic-form input, .basic-form textarea, .basic-form select,
-  form textarea, form select {
-   display: block;
-   border:1px solid #c6ced0;
-   border-radius:3px;
-   padding: 7px;
-   width: 95%;
-   margin-bottom: 10px;
-   -webkit-transition: all 500ms ease;
-   -moz-transition: all 500ms ease;
-   -ms-transition: all 500ms ease;
-   -o-transition: all 500ms ease;
-   transition: all 500ms ease;
-   resize: none;
- }
+body{
+
+	background:url(../images/texture/4.jpg) repeat;
+
+}
+
+
+.hide {
+   display: none;
+}
+
+.header{
+
+	background:#FFF;
+
+	background:url(../images/bg-blue.jpg) no-repeat;
+
+	
+
+   background-size:cover;
+
+	width:100%;
+
+	height:60px;
+
+	padding-top:7px;
+
+}
+
+
+
+.main{
+
+	width:95%;
+
+	margin-top:40px;
+
+	margin-left:auto;
+
+	margin-right:auto;
+
+	margin-bottom:40px;
+
+}
+
+
+
+ .basic-form input, .basic-form textarea, .basic-form select,
+
+  form textarea, form select {
+
+   display: block;
+
+   border:1px solid #c6ced0;
+
+   border-radius:3px;
+
+   padding: 7px;
+
+   width: 95%;
+
+   margin-bottom: 10px;
+
+   -webkit-transition: all 500ms ease;
+
+   -moz-transition: all 500ms ease;
+
+   -ms-transition: all 500ms ease;
+
+   -o-transition: all 500ms ease;
+
+   transition: all 500ms ease;
+
+   resize: none;
+
+ }
+
  

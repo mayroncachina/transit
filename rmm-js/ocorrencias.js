@@ -79,6 +79,7 @@ function exportarMultas(){
 
 	$("#export").show();
 	$(".log").append("<p>Validando Conexão com a Internet...</p>")
+	getQtdMultas();
 	sleep(2000);
 	$("#txtExport").show();
 
