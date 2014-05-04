@@ -1,7 +1,6 @@
-function gravarOcorrencia(){
-	
+var lib = new localStorageDB("transit1", localStorage);
 
-	var lib = new localStorageDB("transit1", localStorage);
+function gravarOcorrencia(){
 
 	var d = new Date();
 	var n = d.getDay()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds()+""+d.getMilliseconds();
@@ -49,17 +48,23 @@ function gravarOcorrencia(){
 }
 
 function getQtdMultas(){
+	if( lib.isNew() ) {
+	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
+	}
+
+	var qtdRegistro = lib.rowCount("autoacoes");
+
+	$(".qtd").html(qtdRegistro);
+
+}
+
+function getMultas(){
 	
-
-
-	var lib = new localStorageDB("transit1", localStorage);
 	if( lib.isNew() ) {
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 	var lista = lib.query("autoacoes");
-	var qtdRegistro = lib.rowCount("autoacoes");
 
-	$(".qtd").html(qtdRegistro);
 
 	var lzwCompress = window.lzwCompress;
 
