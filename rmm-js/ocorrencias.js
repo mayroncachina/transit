@@ -109,7 +109,7 @@ function exportar(obj){
 	      {
 	      	exportar : true,
 	      	codigo : obj.codigo,
-	        imagem : obj.original,
+	        imagem : original,
 	        bairro : obj.bairro,
 	        logradouro : obj.logradouro,
 	        cidade : obj.cidade,
