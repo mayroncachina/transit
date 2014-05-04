@@ -121,7 +121,7 @@ function exportar(obj){
 	      }, 
 	      function( data ) {
 
-	        $(".log").append("<p>ENVIADO "+listaAutoacoes[i].cod+"</p>");
+	        $(".log").append("<p>ENVIADO "+obj.cod+"</p>");
 
 	  });
 
