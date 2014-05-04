@@ -64,7 +64,7 @@ function getQtdMultas(){
 	$(".qtd").html(qtdRegistro);
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
 	for (var i = lista.length - 1; i >= 0; i--) {
-		linha += "<li>"+lista[i].cod+" - ("+ lista[i].data +")</li>";
+		linha += "<li><img src='http://www.w3schools.com/jquerymobile/chrome.png'>"+lista[i].cod+" - ("+ lista[i].data +")</li>";
 	};
 	console.log(linha);
 	$("#multas").html(linha);
