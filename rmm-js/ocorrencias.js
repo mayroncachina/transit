@@ -1,4 +1,5 @@
 var lib = new localStorageDB("transit1", localStorage);
+var listaAutoacoes = null;
 
 function gravarOcorrencia(){
 
@@ -65,12 +66,11 @@ function getMultas(){
 	}
 	var lista = lib.query("autoacoes");
 
-
 	var lzwCompress = window.lzwCompress;
 
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
 	for (var i = lista.length - 1; i >= 0; i--) {
-	
+		listaAutoacoes.push(lista[i]);
 		var original = lzwCompress.unpack(lista[i].imagem);
 		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"<span class='ui-li-count'><img src='images/sync.png'></span></h2> <p>"+ lista[i].data +"</p></li>";
 	};
@@ -86,13 +86,19 @@ function exportarMultas(){
 	$(".log").append("<p>Validando Conexão com a Internet...</p>")
 	getQtdMultas();
 	sleep(2000);
-	$("#txtExport").show();
+	$(".txtExport").show();
+	for (var i = listaAutoacoes.length - 1; i >= 0; i--) {
+
+		$(".log").append("<p>ENVIANDO "+listaAutoacoes[i].cod+"</p>");
+		exportar(lista[i]);
+		sleep(500);
+	};
 
 
 }
 
 
-function exportar(codigo, imagem, bairro, logradouro, cidade, localizacao, placa, veiculo, infracao){
+function exportar(obj){
 
 $(".log").append("<p>TESTE</p>")
 
