@@ -4,7 +4,7 @@ var listaAutoacoes = [];
 function gravarOcorrencia(){
 
 	var d = new Date();
-	var n = d.getDay()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds()+""+d.getMilliseconds();
+	var n = d.getTime();//d.getDay()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds()+""+d.getMilliseconds();
 
 	var codigo = "NAT01"+n;
 
