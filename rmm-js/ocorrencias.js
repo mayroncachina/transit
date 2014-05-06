@@ -146,7 +146,7 @@ function postar(){
 
 	      }, 
 	      function( data ) {
-
+	      	alert('ok')
 	        $("#main").hide();
 	        $(".ocorrencia").html(data);
 	        $("#retorno").show();
