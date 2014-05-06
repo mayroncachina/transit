@@ -1,0 +1,3 @@
+
+#MOTO G
+$("#viewport-container").attr('style',"width: 360px; height: 598px; padding: 0px;")
