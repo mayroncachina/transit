@@ -1,19 +1,4 @@
 
-var pictureSource;   // picture source
-var destinationType; // sets the format of returned value
-
-// Wait for device API libraries to load
-//
-document.addEventListener("deviceready",onDeviceReady,false);
-
-// device APIs are available
-//
-function onDeviceReady() {
-    pictureSource=navigator.camera.PictureSourceType;
-    destinationType=navigator.camera.DestinationType;
-    //capturePhotoEdit();
-}
-
 // Called when a photo is successfully retrieved
 //
 function onPhotoDataSuccess(imageData) {

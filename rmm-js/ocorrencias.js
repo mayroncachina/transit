@@ -1,6 +1,3 @@
-var lib = new localStorageDB("transit1", localStorage);
-var listaAutoacoes = [];
-
 function gravarOcorrencia(){
 
 	var d = new Date();
@@ -13,7 +10,6 @@ function gravarOcorrencia(){
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 
-	alert(lib.isNew())
 
 	var lzwCompress = window.lzwCompress;
 
