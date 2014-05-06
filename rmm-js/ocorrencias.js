@@ -103,7 +103,9 @@ function exportar(obj){
 
 	var lzwCompress = window.lzwCompress;
 	var original = lzwCompress.unpack(obj.imagem);
-
+	alert(obj.cod);
+	alert(obj.rua);
+	alert(obj.localicacao);
 	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
 
 	      {
@@ -111,9 +113,9 @@ function exportar(obj){
 	      	codigo : obj.codigo,
 	        imagem : original,
 	        bairro : obj.bairro,
-	        logradouro : obj.logradouro,
+	        logradouro : obj.rua,
 	        cidade : obj.cidade,
-	        localizacao : obj.localizacao,
+	        localizacao : obj.localicacao,
 	        placa :  obj.placa,
 	        veiculo :  "",
 	        infracao :  obj.infracao,
@@ -181,3 +183,5 @@ function sleep(milliseconds) {
     }
   }
 }
+
+

@@ -16,7 +16,7 @@
 
       width:100%;
 
-      height: 300px;
+      height: 100px;
 
       margin: 0px;
 
@@ -61,107 +61,101 @@
 
 
 
-  <div class="header" align="center">
-
-  	<img src="images/logo.png" width="200" />
-
-  </div>
-
-  <div class="rmm" style="top:20px">
-
-   <ul>
-
-    <li><a href='home.html'>Início</a></li>
-
-    <li><a href='transit.html'>Registrar Infração</a></li>
-
-    <li><a href='#'>Ver Infrações</a></li>
-
-    <li><a href='exportar.html'>Exportar</a></li>
-
-    <li><a href='index.html'>Sair</a></li>
-
-  </ul>
-
-</div>
-
-<div class="main" align="center">
-
-  <form action="transit.html" method="post" class="basic-form">
-
-    <label for="placa">Infrator:</label>
-
-    <input type="text" placeholder="Ex: NNN-1234" name="placa" id="placa" />
-
-    <input type="text" placeholder="Veículo" name="veiculo" id="veiculo"/>
-
-  </form>
-
-
-  <div id="map-canvas"></div>
-
-
-  <br /><br />
-
-  <img style="display:none;width:90%;height:260px;" id="smallImage" src="" />
-
-  <form action="transit.html" method="post" class="basic-form">
-
-    <label for="local">Dados da Infração:</label>
-
-    <input type="text" placeholder="Logradouro" name="logradouro" id="logradouro"/>
-
-    <!--<input type="text" placeholder="Número" name="numero"/>-->
-    <input type="text" name="localizacao" id="localizacao" readonly="readonly" />
-
-    <input type="text" placeholder="Bairro" name="bairro" id="bairro"/>
-
-    <input type="text" placeholder="Cidade" name="cidade" id="cidade"/>
-
-    <select name="infracao" id="infracao">
-
-      <option>Selecione...</option>
-
-      <option value="1">Efetuar conversões em local proibido - Multa</option>
-
-      <option value="2">Estacionar em fila dupla - Multa/remoção</option>
-
-      <option value="3">Estacionar ao lado ou sobre o canteiro central, ilhas, refúgios ou canalizações - Multa/remoção</option>
-
-      <option value="4">Seguir veículo em serviço de urgência com prioridade de passagem - Multa</option>
-
-      <option value="5">Estacionar veículo no passeio ou sobre a faixa de pedestres - Multa</option>
-
-    </select>
-
-    <input type="hidden" name="msg" value="sucess" />
-
-    <input type="button" class="btn btn-sm btn-success" onclick="postar()" value="ENVIAR"/>
-
-  </form>
 
 
 
+      <div data-role="page" id="index">
+          <div data-theme="b" data-role="header" data-position="fixed" class="header" align="center">
+              <img src="images/logo.png" width="200" />
+          </div>
+           
+          <div data-role="content">
+              <div class="example-wrapper menu_home" data-iscroll>
+                  
 
 
+                  <form action="transit.html" method="post" class="basic-form">
+
+                    <label for="placa">Infrator:</label>
+
+                    <input type="text" placeholder="Ex: NNN-1234" name="placa" id="placa" />
+
+                    <input type="text" placeholder="Veículo" name="veiculo" id="veiculo"/>
+
+                  </form>
 
 
-  <br />
-
-  <br />
-
-  <br />
+                  <div id="map-canvas"></div>
 
 
+                  <br /><br />
 
-</div>
-<br/><br/>
-<div id="loading" style="display:none"></div>
-<div id="retorno"  style="display:none">
-  <h1 class="ocorrencia">-</h1>
-  <a href="transit.html">NOVA AUTUAÇÃO</a>
-</div>
+                  <img style="display:none;width:90%;height:260px;" id="smallImage" src="" />
 
+                  <form action="transit.html" method="post" class="basic-form">
+
+                    <label for="local">Dados da Infração:</label>
+
+                    <input type="text" placeholder="Logradouro" name="logradouro" id="logradouro"/>
+
+                    <!--<input type="text" placeholder="Número" name="numero"/>-->
+                    <input type="text" name="localizacao" id="localizacao" readonly="readonly" />
+
+                    <input type="text" placeholder="Bairro" name="bairro" id="bairro"/>
+
+                    <input type="text" placeholder="Cidade" name="cidade" id="cidade"/>
+
+                    <select name="infracao" id="infracao">
+
+                      <option>Selecione...</option>
+
+                      <option value="1">Efetuar conversões em local proibido - Multa</option>
+
+                      <option value="2">Estacionar em fila dupla - Multa/remoção</option>
+
+                      <option value="3">Estacionar ao lado ou sobre o canteiro central, ilhas, refúgios ou canalizações - Multa/remoção</option>
+
+                      <option value="4">Seguir veículo em serviço de urgência com prioridade de passagem - Multa</option>
+
+                      <option value="5">Estacionar veículo no passeio ou sobre a faixa de pedestres - Multa</option>
+
+                    </select>
+
+                    <input type="hidden" name="msg" value="sucess" />
+
+                    <input type="button" class="btn btn-sm btn-success" onclick="postar()" value="ENVIAR"/>
+
+                  </form>
+
+                  <br />
+                  <br />
+                  <br />
+                </div>
+                <br/><br/>
+                <div id="loading" style="display:none"></div>
+                <div id="retorno"  style="display:none">
+                  <h1 class="ocorrencia">-</h1>
+                  <a href="transit.html">NOVA AUTUAÇÃO</a>
+                </div>
+              </div>           
+          
+          <div data-theme="b" data-role="footer" data-position="fixed" >
+                      <div data-role="navbar">
+                          <ul>
+                              <li><a href="exportar.html" data-icon="grid" >Exportar</a></li>
+                              <li><a href="transit.html" data-icon="star" class="ui-btn-active">Multar</a></li>
+                              <li><a href="#" data-icon="gear">Visualizar</a></li>
+                          </ul>
+                      </div><!-- /navbar -->
+          </div>
+           
+      </div>  
+<script>
+$(document).on('pagebeforeshow', '#index', function(){ 
+    //$('[data-role="content"]').trigger('create');
+    //$(".example-wrapper").iscrollview("refresh");
+});
+</script>
 </body>
 
 </html>

@@ -12,26 +12,6 @@
 
   <meta charset="utf-8">
 
-  <style>
-
-    #map-canvas {
-
-      width:100%;
-
-      height: 300px;
-
-      margin: 0px;
-
-      margin-top:20px;
-
-      padding: 0px;
-
-    }
-
-  </style>
-
-
-
   <link rel="stylesheet" href="css/reset.css" type="text/css"/>
 
   <link rel="stylesheet" href="css/template.css" type="text/css"/>
@@ -40,80 +20,75 @@
 
   <link rel="stylesheet" href="rmm-css/responsivemobilemenu.css" type="text/css"/>
 
+    <link rel="stylesheet" href="http://example.gajotres.net/iscrollview/jquery.mobile.iscrollview-pull.css" type="text/css"/>
+    <link rel="stylesheet" href="http://example.gajotres.net/iscrollview/jquery.mobile.iscrollview.css" type="text/css"/>
+    
+    <link rel="stylesheet" href="rmm-css/jquery.mobile-1.4.2.min.css" />
+    <script src="rmm-js/jquery-1.9.1.min.js"></script>
+    <script src="rmm-js/jquery.mobile-1.4.2.min.js"></script>
 
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script type="text/javascript" src="http://example.gajotres.net/iscrollview/iscroll.js"></script>
+    <script type="text/javascript" src="http://example.gajotres.net/iscrollview/jquery.mobile.iscrollview.js"></script>
+    
+    <script type="text/javascript" src="rmm-js/responsivemobilemenu.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
 
-  <script type="text/javascript" src="rmm-js/responsivemobilemenu.js"></script>
-  <script type="text/javascript" src="cordova.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
-
-  <script type="text/javascript" src="rmm-js/localstoragedb.js"></script>
-  <script type="text/javascript" src="rmm-js/ocorrencias.js"></script>
-  <script type="text/javascript" src="rmm-js/maps.js"></script>
-  <script type="text/javascript" src="rmm-js/lzwCompress.js"></script>
-  <script type="text/javascript" src="rmm-js/iscroll.js"></script>
+    <script type="text/javascript" src="rmm-js/localstoragedb.js"></script>
+    <script type="text/javascript" src="rmm-js/ocorrencias.js"></script>
+    <script type="text/javascript" src="rmm-js/maps.js"></script>
+    <script type="text/javascript" src="rmm-js/lzwCompress.js"></script>
 
 </head>
 
 <body>
 
-  <div data-role="page" id="index">
+      <div data-role="page" id="index">
+           <div data-theme="b" data-role="header" data-position="fixed" class="header" align="center">
+              <img src="images/logo.png" width="200" />
+          </div>
+           
+          <div data-role="content">
+              <div class="example-wrapper menu_home" data-iscroll>
+                  
 
-    <div class="header" align="center">
+                  <div id="export" class="hide">
+                      <p class="txtExport hide" >EXPORTANDO INFRAÇÕES | 1 de <span class="qtd">X</span> </p>
 
-    	<img src="images/logo.png" width="200" />
+                      <img src="images/loading.gif" />
+                      
+                      <div class="log"></div>
+                  </div>
 
-    </div>
+                  <button onclick="exportarMultas()">Exportar Multas</button>
+                  <ul data-role="listview" data-inset="true" id="multas" data-theme="a" data-divider-theme="e" data-count-theme="b"></ul>
 
-    <div class="rmm" style="top:20px">
+              
+              </div>           
+          </div>
+          
+          <div data-theme="b" data-role="footer" data-position="fixed" >
+                      <div data-role="navbar">
+                          <ul>
+                              <li><a href="#" data-icon="grid" class="ui-btn-active">Exportar</a></li>
+                              <li><a href="transit.html" data-icon="star" >Multar</a></li>
+                              <li><a href="#" data-icon="gear">Visualizar</a></li>
+                          </ul>
+                      </div><!-- /navbar -->
+          </div>
+           
+      </div>    
 
-       <ul>
-
-        <li><a href='home.html'>Início</a></li>
-
-        <li><a href='transit.html'>Registrar Infração</a></li>
-
-        <li><a href='#'>Ver Infrações</a></li>
-
-        <li><a href='exportar.html'>Exportar</a></li>
-
-        <li><a href='index.html'>Sair</a></li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="main" align="center" data-role="content">
-      <div class="example-wrapper" data-iscroll>
-        <div id="export" class="hide">
-            <p class="txtExport hide" >EXPORTANDO INFRAÇÕES | 1 de <span class="qtd">X</span> </p>
-
-            <img src="images/loading.gif" />
-            
-            <div class="log"></div>
-        </div>
-
-        <button onclick="exportarMultas()">Exportar Multas</button>
-        <ul data-role="listview" data-inset="true" id="multas" data-theme="a" data-divider-theme="e" data-count-theme="b"></ul>
-
-      </div>
-    </div>
-  </div>
   <script type="text/javascript">
     getMultas();
-
-    $(document).on('pagebeforeshow', '#index', function(){ 
-    for(i = 0; i < 30; i++) {
-        $(".example-wrapper div .iscroll-content").append('<a data-role="button">Button ' + i + '</a>');
-    }
-    $('[data-role="content"]').trigger('create');
-    $(".example-wrapper").iscrollview("refresh");
-});
   </script>
+  <script>
+$(document).on('pageinit', '#index', function(){ 
+    //$('[data-role="content"]').trigger('create');
+    //$(".example-wrapper").iscrollview("refresh");
+});
+</script>
 </body>
 
 </html>
