@@ -94,13 +94,9 @@ body{
 
  #map-canvas {
 
-      width:100%;
-
-      height: 100px;
+      width:400px;
 
       margin: 0px;
-
-      margin-top:20px;
 
       padding: 0px;
 
