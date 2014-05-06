@@ -44,11 +44,7 @@ function initialize() {
 
   };
 
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-
-      mapOptions);
-
-
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   // Try HTML5 geolocation
 
@@ -56,10 +52,9 @@ function initialize() {
 
     navigator.geolocation.getCurrentPosition(function(position) {
 
-      var pos = new google.maps.LatLng(position.coords.latitude,
+      var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-                                       position.coords.longitude);
-
+/*
       var infowindow = new google.maps.InfoWindow({
 
         map: map,
@@ -69,11 +64,14 @@ function initialize() {
         content: 'Você está aqui!'
 
       });
-
+*/
+      
       $("#localizacao").val(position.coords.latitude+","+position.coords.longitude);
+      $("#map-canvas").html("<img src='http://maps.googleapis.com/maps/api/staticmap?center="+position.coords.latitude+","+position.coords.longitude+"&zoom=17&size=320x320&markers=color:blue|7Clabel:S|"+position.coords.latitude+","+position.coords.longitude+"&sensor=true' />")
+      //http://maps.googleapis.com/maps/api/staticmap?center=-5,780451727305376,-35,19955158233631&zoom=13&size=400x400&markers=color:blue|7Clabel:S|-5.33153159,-35.859375&sensor=true
 
-      map.setCenter(pos);
-      getAddress(pos)
+//      map.setCenter(pos);
+      getAddress(pos);
 
     }, function() {
 
