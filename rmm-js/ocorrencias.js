@@ -129,7 +129,7 @@ function exportar(obj){
 function postar(){
 
 	var internet = checkConnection();
-alert(internet);
+
 	if(internet != 'DESCONHECIDA' || internet != 'SEM CONEXÃO' ){
 
 	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
@@ -148,7 +148,7 @@ alert(internet);
 	      function( data ) {
 
 	        $("#main").hide();
-	        $(".ocorrencia").html(codigo);
+	        $(".ocorrencia").html(data);
 	        $("#retorno").show();
 
 	  });
