@@ -128,9 +128,9 @@ function exportar(obj){
 
 function postar(){
 
-	var internet = false;
+	var internet = checkConnection();
 
-	if(internet){
+	if(internet != 'DESCONHECIDA' || internet != 'SEM CONEXÃO' ){
 
 	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
 
