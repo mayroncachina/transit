@@ -1,10 +1,10 @@
-function gravarOcorrencia(){
-
+function gerarCodigo(){
 	var d = new Date();
-	var n = d.getTime();//d.getDay()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds()+""+d.getMilliseconds();
+	var n = d.getTime();
+	return "NAT01"+n;
+}
 
-	var codigo = "NAT01"+n;
-
+function gravarOcorrencia(){
 	// Check if the database was just created. Useful for initial database setup
 	if( lib.isNew() ) {
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
@@ -19,7 +19,7 @@ function gravarOcorrencia(){
 
 	
 	json = {
-	        cod : codigo,
+	        cod : gerarCodigo(),
 	        placa :  $("#placa").val(),
 	        veiculo :  $("#veiculo").val(),
 	        rua : $("#logradouro").val(),
@@ -132,9 +132,12 @@ function postar(){
 
 	if(internet != 'DESCONHECIDA' || internet != 'SEM CONEXÃO' ){
 
+		$( "#loading" ).show();
+		$(".multar-cadastro").hide();
 	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
 
 	      {
+	      	cod: gerarCodigo(),
 	        imagem : $("#smallImage").attr('src'),
 	        bairro : $("#bairro").val(),
 	        logradouro : $("#logradouro").val(),
@@ -146,8 +149,7 @@ function postar(){
 
 	      }, 
 	      function( data ) {
-	      	alert('ok')
-	        $("#main").hide();
+	      	$("#loading" ).hide();
 	        $(".ocorrencia").html(data);
 	        $("#retorno").show();
 
@@ -158,18 +160,6 @@ function postar(){
 		gravarOcorrencia();
 	}
 }
-
-
-$( document ).ajaxStart(function() {
-  //$( "#loading" ).text( "Triggered ajaxStart handler." );
-  $("#main").hide();
-  $("#retorno").hide();
-  $( "#loading" ).show();
-});
-
-$( document ).ajaxStop(function() {
-  $( "#loading" ).hide();
-});
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
