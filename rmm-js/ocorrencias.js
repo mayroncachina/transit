@@ -137,7 +137,7 @@ function postar(){
 		var d = new Date();
 		var n = d.getTime();
 		var codigo = "NAT01"+n;
-
+		alert(codigo)
 	  $.post( "http://sandbox.cachina.com.br/transit/index.php",
 
 	      {
