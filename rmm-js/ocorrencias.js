@@ -126,9 +126,9 @@ function exportar(obj){
 
 function postar(){
 
-	var internet = checkConnection();
-
-	if(internet != 'DESCONHECIDA' || internet != 'DESCONECTADO' ){
+	var internet = getNumConnection();
+alert(internet);
+	if(internet > 0 ){
 
 alert('estou com conexao')
 

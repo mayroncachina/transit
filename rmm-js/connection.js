@@ -17,6 +17,23 @@ function checkConnection() {
 
 }
 
+function getNumConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 0;
+    states[Connection.ETHERNET] = 1;
+    states[Connection.CELL_2G]  = 2;
+    states[Connection.CELL_3G]  = 3;
+    states[Connection.CELL_4G]  = 4;
+    states[Connection.CELL]     = 5;
+    states[Connection.WIFI]     = 6;
+    states[Connection.NONE]     = 0;
+
+    return states[networkState];
+
+}
+
 //https://www.iconfinder.com/icons/99719/d6_wifi_icon#size=128
 //https://www.iconfinder.com/icons/99782/d5_wifi_icon#size=128
 //https://www.iconfinder.com/icons/99708/d4_wifi_icon#size=128
