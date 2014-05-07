@@ -164,6 +164,14 @@ function postar(){
 	}
 }
 
+
+function truncate(){
+	lib.truncate();
+	alert("BANCO DE DADOS APAGADO")
+	$.mobile.changePage( "#home", { transition: "slide", changeHash: false });
+
+}
+
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
