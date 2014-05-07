@@ -36,10 +36,10 @@ function gravarOcorrencia(){
 	lib.insert("autoacoes", json);
 
 	lib.commit();
-alert('gravado offline')
-    $(".main").hide();
-    $(".ocorrencia").html(codigo);
-    $("#retorno").show();
+
+	$("#loading" ).hide();
+	$(".ocorrencia").html(data);
+	$("#retorno").show();
     
 
 }
@@ -127,10 +127,8 @@ function exportar(obj){
 function postar(){
 
 	var internet = getNumConnection();
-alert(internet);
-	if(internet > 0 ){
 
-alert('estou com conexao')
+	if(internet > 0 ){
 
 		$( "#loading" ).show();
 		$(".multar-cadastro").hide();
@@ -161,7 +159,6 @@ alert('estou com conexao')
 	  });
 
 	}else{
-	alert('estou sem conexao')
 
 		gravarOcorrencia();
 	}
