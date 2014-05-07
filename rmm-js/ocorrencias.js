@@ -141,7 +141,7 @@ function postar(){
 	  $.post( "http://sandbox.cachina.com.br/transit/index.php",
 
 	      {
-	      	cod: codigo,
+	      	codigo: codigo,
 	        imagem : $("#smallImage").attr('src'),
 	        bairro : $("#bairro").val(),
 	        logradouro : $("#logradouro").val(),
