@@ -5,7 +5,7 @@ function gravarOcorrencia(){
 	var codigo = "NAT01"+n;
 	// Check if the database was just created. Useful for initial database setup
 	if( lib.isNew() ) {
-	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
+	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 
 
@@ -19,7 +19,6 @@ function gravarOcorrencia(){
 	
 	json = {
 	        cod : codigo,
-	        marca: $("#marca").val(),
 	        placa :  $("#placa").val(),
 	        veiculo :  $("#veiculo").val(),
 	        rua : $("#logradouro").val(),
@@ -46,7 +45,7 @@ function gravarOcorrencia(){
 
 function getQtdMultas(){
 	if( lib.isNew() ) {
-	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
+	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 
 	var qtdRegistro = lib.rowCount("autoacoes");
@@ -58,7 +57,7 @@ function getQtdMultas(){
 function getMultas(){
 	
 	if( lib.isNew() ) {
-	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
+	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
 	var lista = lib.query("autoacoes");
 
@@ -104,7 +103,6 @@ function exportar(obj){
 	      {
 	      	exportar : true,
 	      	codigo : obj.codigo,
-	      	marca: obj.marca,
 	        imagem : original,
 	        bairro : obj.bairro,
 	        logradouro : obj.rua,
@@ -140,7 +138,6 @@ function postar(){
 
 	      {
 	      	codigo: codigo,
-	      	marca: $("#marca").val(),
 	        imagem : $("#smallImage").attr('src'),
 	        bairro : $("#bairro").val(),
 	        logradouro : $("#logradouro").val(),
