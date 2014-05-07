@@ -9,7 +9,7 @@ function checkConnection() {
     states[Connection.CELL_3G]  = '3G';
     states[Connection.CELL_4G]  = '4G';
     states[Connection.CELL]     = 'GPRS';
-    states[Connection.NONE]     = 'SEM CONEXÃO';
+    states[Connection.NONE]     = 'DESCONECTADO';
 
     $(".connection").html('Conexão: ' + states[networkState]);
 

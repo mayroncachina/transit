@@ -127,8 +127,10 @@ function exportar(obj){
 function postar(){
 
 	var internet = checkConnection();
-alert(internet);
-	if(internet != 'DESCONHECIDA' || internet != 'SEM CONEXÃO' ){
+
+	if(internet != 'DESCONHECIDA' || internet != 'DESCONECTADO' ){
+
+alert('estou com conexao')
 
 		$( "#loading" ).show();
 		$(".multar-cadastro").hide();
@@ -159,7 +161,8 @@ alert(internet);
 	  });
 
 	}else{
-	
+	alert('estou sem conexao')
+
 		gravarOcorrencia();
 	}
 }
