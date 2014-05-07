@@ -92,12 +92,16 @@ body{
 }
  
 
- #map-canvas {
+#map-canvas {
 
-      width:400px;
+  width:400px;
 
-      margin: 0px;
+  margin: 0px;
 
-      padding: 0px;
+  padding: 0px;
 
-    }
+}
+
+.ocorrencia {
+  font-size: 45px;
+}

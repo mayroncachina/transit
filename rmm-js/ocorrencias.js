@@ -134,7 +134,8 @@ function postar(){
 
 		$( "#loading" ).show();
 		$(".multar-cadastro").hide();
-	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
+		console.log(gerarCodigo());
+	  $.post( "http://sandbox.cachina.com.br/transit/index.php",
 
 	      {
 	      	cod: gerarCodigo(),
