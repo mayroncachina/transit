@@ -1,14 +1,13 @@
-function gerarCodigo(){
+function gravarOcorrencia(){
+
 	var d = new Date();
 	var n = d.getTime();
-	return "NAT01"+n;
-}
-
-function gravarOcorrencia(){
+	var codigo = "NAT01"+n;
 	// Check if the database was just created. Useful for initial database setup
 	if( lib.isNew() ) {
 	    lib.createTable("autoacoes", ["cod", "placa", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
 	}
+
 
 
 	var lzwCompress = window.lzwCompress;
@@ -19,7 +18,7 @@ function gravarOcorrencia(){
 
 	
 	json = {
-	        cod : gerarCodigo(),
+	        cod : codigo,
 	        placa :  $("#placa").val(),
 	        veiculo :  $("#veiculo").val(),
 	        rua : $("#logradouro").val(),
@@ -134,11 +133,15 @@ function postar(){
 
 		$( "#loading" ).show();
 		$(".multar-cadastro").hide();
-		console.log(gerarCodigo());
+
+		var d = new Date();
+		var n = d.getTime();
+		var codigo = "NAT01"+n;
+
 	  $.post( "http://sandbox.cachina.com.br/transit/index.php",
 
 	      {
-	      	cod: gerarCodigo(),
+	      	cod: codigo,
 	        imagem : $("#smallImage").attr('src'),
 	        bairro : $("#bairro").val(),
 	        logradouro : $("#logradouro").val(),
