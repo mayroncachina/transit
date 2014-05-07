@@ -36,7 +36,7 @@ function gravarOcorrencia(){
 	lib.insert("autoacoes", json);
 
 	lib.commit();
-
+alert('gravado offline')
     $(".main").hide();
     $(".ocorrencia").html(codigo);
     $("#retorno").show();
@@ -127,7 +127,7 @@ function exportar(obj){
 function postar(){
 
 	var internet = checkConnection();
-
+alert(internet);
 	if(internet != 'DESCONHECIDA' || internet != 'SEM CONEXÃO' ){
 
 		$( "#loading" ).show();
