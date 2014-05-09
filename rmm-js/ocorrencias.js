@@ -3,12 +3,6 @@ function gravarOcorrencia(){
 	var d = new Date();
 	var n = d.getTime();
 	var codigo = "NAT01"+n;
-	// Check if the database was just created. Useful for initial database setup
-	if( lib.isNew() ) {
-	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
-	}
-
-
 
 	var lzwCompress = window.lzwCompress;
 
@@ -45,9 +39,6 @@ function gravarOcorrencia(){
 }
 
 function getQtdMultas(){
-	if( lib.isNew() ) {
-	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
-	}
 
 	var qtdRegistro = lib.rowCount("autoacoes");
 
@@ -56,12 +47,15 @@ function getQtdMultas(){
 }
 
 function getMultas(){
-	
-	if( lib.isNew() ) {
-	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
-	}
-	var lista = lib.query("autoacoes");
 
+	var lista = lib.query("autoacoes", function(row) {
+	    if(row.codigo > 0) {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	});
+	
 	var lzwCompress = window.lzwCompress;
 
 	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
