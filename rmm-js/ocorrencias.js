@@ -1,3 +1,21 @@
+function limparTelaOcorrencias(){
+	
+    $("#placa").val('');
+    $("#veiculo").val('');
+    $("#marca").val('0');
+    $("#marca").trigger('change');
+    $("#infracao").val('0');
+    $("#infracao").trigger('change');
+    $("#smallImage").attr('src','');
+    
+	$("#retorno").hide();
+	sleep(500);
+    $('.multar-cadastro').show()
+	$.mobile.changePage( "#multar", { transition: "slide" });
+	$(".ocorrencia").html('');
+
+}
+
 function gravarOcorrencia(){
 
 	var d = new Date();
@@ -26,13 +44,11 @@ function gravarOcorrencia(){
 
 	      };
 
-
 	lib.insert("autoacoes", json);
 
 	lib.commit();
-
-	$("#loading" ).hide();
-	$(".ocorrencia").html(data);
+	$('.multar-cadastro').hide()
+	$(".ocorrencia").html(codigo);
 	$("#retorno").show();
     
 
@@ -49,7 +65,7 @@ function getQtdMultas(){
 function getMultas(){
 
 	var lista = lib.query("autoacoes", function(row) {
-	    if(row.codigo > 0) {
+	    if(row.cod != -1) {
 	        return true;
 	    } else {
 	        return false;
@@ -58,32 +74,49 @@ function getMultas(){
 	
 	var lzwCompress = window.lzwCompress;
 
-	var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
-	for (var i = lista.length - 1; i >= 0; i--) {
-		listaAutoacoes.push(lista[i]);
-		console.log(listaAutoacoes)
-		var original = lzwCompress.unpack(lista[i].imagem);
-		linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"<span class='ui-li-count'><img src='images/sync.png'></span></h2> <p>"+ lista[i].data +"</p></li>";
-	};
+	if(lista.length > 0){
+		
+		$("#btn-exportar").show();
+
+		var linha = '<li data-role="list-divider" data-theme="a">Multas Aplicadas</li>';
+		for (var i = lista.length - 1; i >= 0; i--) {
+			listaAutoacoes.push(lista[i]);
+			console.log(listaAutoacoes)
+			var original = lzwCompress.unpack(lista[i].imagem);
+			var dataOcorrencia = new Date(lista[i].data);
+			linha += "<li><img src='"+original+"' width='80'><h2>"+lista[i].cod+"</h2> <p>"+ dataOcorrencia.toLocaleString() +"</p><p>Infração: "+lista[i].infracao+"</p></li>";
+		};
 
 
-	$("#multas").html(linha);
-	$('#multas').listview('refresh');
+		$("#multas").html(linha);
+		$('#multas').listview('refresh');
+
+	}else{
+
+		$("#multas").html("<h1 class='center top50'>SEM MULTAS CADASTRADAS</h1>");
+		$("#btn-exportar").hide();
+	}
 
 }
 function exportarMultas(){
 
-	$("#export").show();
-	$("#multas").hide();
-	$(".log").append("<p>Validando Conexão com a Internet...</p>")
-	getQtdMultas();
-	sleep(2000);
-	$(".txtExport").show();
-	for (var i = listaAutoacoes.length - 1; i >= 0; i--) {
+	var internet = getNumConnection();
 
-		exportar(listaAutoacoes[i]);
-		sleep(500);
-	};
+	if(internet > 0 ){
+
+		$("#export").show();
+		$("#multas").hide();
+		$(".log").append("<p>Validando Conexão com a Internet...</p>")
+		getQtdMultas();
+		sleep(2000);
+		$(".txtExport").show();
+		for (var i = listaAutoacoes.length - 1; i >= 0; i--) {
+
+			exportar(listaAutoacoes[i]);
+		};
+	}else{
+		alert('SEM CONEXAO');
+	}
 
 
 }
@@ -161,6 +194,7 @@ function postar(){
 
 function truncate(){
 	lib.truncate();
+	lib.commit();
 	alert("BANCO DE DADOS APAGADO")
 	$.mobile.changePage( "#home", { transition: "slide", changeHash: false });
 

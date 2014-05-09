@@ -1,38 +1,50 @@
 function checkConnection() {
-    
-    var networkState = navigator.connection.type;
+    try{
 
-    var states = {};
-    states[Connection.UNKNOWN]  = 'DESCONHECIDA';
-    states[Connection.ETHERNET] = 'Ethernet';
-    states[Connection.WIFI]     = 'WiFi';
-    states[Connection.CELL_2G]  = '2G';
-    states[Connection.CELL_3G]  = '3G';
-    states[Connection.CELL_4G]  = '4G';
-    states[Connection.CELL]     = 'GPRS';
-    states[Connection.NONE]     = 'DESCONECTADO';
+        var networkState = navigator.connection.type;
 
-    $(".connection").html('Conexão: ' + states[networkState]);
+        var states = {};
+        states[Connection.UNKNOWN]  = 'DESCONHECIDA';
+        states[Connection.ETHERNET] = 'Ethernet';
+        states[Connection.WIFI]     = 'WiFi';
+        states[Connection.CELL_2G]  = '2G';
+        states[Connection.CELL_3G]  = '3G';
+        states[Connection.CELL_4G]  = '4G';
+        states[Connection.CELL]     = 'GPRS';
+        states[Connection.NONE]     = 'DESCONECTADO';
 
-    return states[networkState];
+        $(".connection").html('Conexão: ' + states[networkState]);
+
+        return states[networkState];
+
+    } catch(err) {
+        $(".connection").html('USO EXCLUSIVO NO PC');
+    }
 
 }
 
 function getNumConnection() {
-    var networkState = navigator.connection.type;
+    try{
 
-    var states = {};
-    states[Connection.UNKNOWN]  = 0;
-    states[Connection.ETHERNET] = 1;
-    states[Connection.CELL_2G]  = 2;
-    states[Connection.CELL_3G]  = 3;
-    states[Connection.CELL_4G]  = 4;
-    states[Connection.CELL]     = 5;
-    states[Connection.WIFI]     = 6;
-    states[Connection.NONE]     = 0;
+        var networkState = navigator.connection.type;
 
-    return states[networkState];
+        var states = {};
+        states[Connection.UNKNOWN]  = 0;
+        states[Connection.ETHERNET] = 1;
+        states[Connection.CELL_2G]  = 2;
+        states[Connection.CELL_3G]  = 3;
+        states[Connection.CELL_4G]  = 4;
+        states[Connection.CELL]     = 5;
+        states[Connection.WIFI]     = 6;
+        states[Connection.NONE]     = 0;
 
+        return states[networkState];
+
+    } catch(err) {
+
+        $(".connection").html('USO EXCLUSIVO NO PC');
+        return 0;
+    }
 }
 
 //https://www.iconfinder.com/icons/99719/d6_wifi_icon#size=128

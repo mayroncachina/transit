@@ -1,7 +1,26 @@
 
+  function initialize(){
 
+    try {
 
-var map;
+       navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+        function onSuccess(position) {
+          $("#localizacao").val(position.coords.latitude+","+position.coords.longitude);
+          $("#map-canvas").html("<img src='http://maps.googleapis.com/maps/api/staticmap?center="+position.coords.latitude+","+position.coords.longitude+"&zoom=17&size=300x200&markers=color:blue|7Clabel:S|"+position.coords.latitude+","+position.coords.longitude+"&sensor=true' />")
+          getAddress(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+        }
+
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+    
+    }catch(err) {
+        console.log(err);
+        getLocalizationHTML()
+    }
+  }
 
   function getAddress(latLng) {
   	geocoder = new google.maps.Geocoder();
@@ -32,7 +51,7 @@ var map;
   }
  
 
-function initialize() {
+function getLocalizationHTML() {
   if(navigator.geolocation) {
 
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -41,9 +60,7 @@ function initialize() {
 
       $("#localizacao").val(position.coords.latitude+","+position.coords.longitude);
       $("#map-canvas").html("<img src='http://maps.googleapis.com/maps/api/staticmap?center="+position.coords.latitude+","+position.coords.longitude+"&zoom=17&size=300x200&markers=color:blue|7Clabel:S|"+position.coords.latitude+","+position.coords.longitude+"&sensor=true' />")
-      //http://maps.googleapis.com/maps/api/staticmap?center=-5,780451727305376,-35,19955158233631&zoom=13&size=400x400&markers=color:blue|7Clabel:S|-5.33153159,-35.859375&sensor=true
 
-//      map.setCenter(pos);
       getAddress(pos);
 
     }, function() {

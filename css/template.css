@@ -4,6 +4,17 @@ body{
 
 }
 
+.center{
+  text-align: center;
+}
+
+.top50 {
+  margin-top: 50px;
+}
+
+.top10 {
+  margin-top: 10px !important;
+}
 
 .hide {
    display: none;

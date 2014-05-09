@@ -1,7 +1,8 @@
+var map;
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
-var lib = new localStorageDB("transit", localStorage);
+var lib = new localStorageDB("bancodedados", localStorage);
 var listaAutoacoes = [];
 
 // Wait for device API libraries to load
@@ -11,8 +12,6 @@ document.addEventListener("deviceready",onDeviceReady,false);
 // device APIs are available
 //
 function onDeviceReady() {
-    
-    alert(lib.isNew())
     
     if( lib.isNew() ) {
 	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
@@ -36,11 +35,8 @@ function onDeviceReady() {
 
 		lib.commit();
 
-
 	}
 
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
-    checkConnection();
-
-}
+ }
