@@ -1,6 +1,8 @@
 function limparTelaOcorrencias(){
 	
-    $("#placa").val('');
+    $("#placa-sufix").val('');
+    $("#placa-prefix").val('');
+    $("#obs").val('');
     $("#veiculo").val('');
     $("#marca").val('0');
     $("#marca").trigger('change');
