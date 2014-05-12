@@ -28,17 +28,19 @@ function gravarOcorrencia(){
 	//var original = lzwCompress.unpack(compressed);
 	//console.log(original);
 
+	placa = $("#placa-prefix").val() + $("#placa-sufix").val()
 	
 	json = {
 	        cod : codigo,
 	        marca: $("#marca").val(),
-	        placa :  $("#placa").val(),
+	        placa :  placa,
 	        veiculo :  $("#veiculo").val(),
 	        rua : $("#logradouro").val(),
 	        bairro : $("#bairro").val(),
 	        cidade : $("#cidade").val(),
 	        localizacao : $("#localizacao").val(),
 	        infracao :  $("#infracao").val(),
+	        obs:   $("#obs").val(),
 	        imagem : compressed,
 	        data: d,
 
@@ -138,6 +140,7 @@ function exportar(obj){
 	        cidade : obj.cidade,
 	        localizacao : obj.localicacao,
 	        placa :  obj.placa,
+	        obs:   obj.obs,
 	        veiculo :  "",
 	        infracao :  obj.infracao,
 
@@ -163,6 +166,7 @@ function postar(){
 		var d = new Date();
 		var n = d.getTime();
 		var codigo = "NAT01"+n;
+		var placa = $("#placa-prefix").val() + $("#placa-sufix").val()
 	  $.post( "http://sandbox.cachina.com.br/transit/index.php",
 
 	      {
@@ -173,9 +177,10 @@ function postar(){
 	        logradouro : $("#logradouro").val(),
 	        cidade : $("#cidade").val(),
 	        localizacao : $("#localizacao").val(),
-	        placa :  $("#placa").val(),
+	        placa :  placa,
 	        veiculo :  $("#veiculo").val(),
 	        infracao :  $("#infracao").val(),
+	        obs:   $("#obs").val(),
 
 	      }, 
 	      function( data ) {

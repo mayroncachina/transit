@@ -2,7 +2,7 @@ var map;
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
-var lib = new localStorageDB("bancodedados", localStorage);
+var lib = new localStorageDB("bancodedados1", localStorage);
 var listaAutoacoes = [];
 
 // Wait for device API libraries to load
@@ -14,7 +14,7 @@ document.addEventListener("deviceready",onDeviceReady,false);
 function onDeviceReady() {
     
     if( lib.isNew() ) {
-	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data"]);
+	    lib.createTable("autoacoes", ["cod", "placa", "marca", "veiculo", "rua", "bairro", "cidade", "localicacao", "infracao", "imagem", "data", "obs"]);
 
 	    json = {
 	        cod : '-1',
@@ -27,6 +27,7 @@ function onDeviceReady() {
 	        localizacao : '-',
 	        infracao :  '-',
 	        imagem : '-',
+	        obs:"-",
 	        data: '-',
 
 	      };
