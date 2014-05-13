@@ -2,7 +2,7 @@ var map;
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
-var lib = new localStorageDB("bancodedados1", localStorage);
+var lib = new localStorageDB("bancodedados2", localStorage);
 var listaAutoacoes = [];
 
 // Wait for device API libraries to load
