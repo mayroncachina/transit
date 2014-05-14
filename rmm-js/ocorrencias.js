@@ -159,6 +159,8 @@ function exportar(obj){
 function postar(){
 
 	if(localStorage.getItem('matricula') == $("#matricula-conferir").val()){
+		
+		$( "#dialogValidar" ).dialog( "close" );
 
 		var internet = getNumConnection();
 
