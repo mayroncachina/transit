@@ -158,43 +158,50 @@ function exportar(obj){
 
 function postar(){
 
-	var internet = getNumConnection();
+	if(localStorage.getItem('matricula') == $("#matricula-conferir").val()){
 
-	if(internet > 0 ){
+		var internet = getNumConnection();
 
-		$( "#loading" ).show();
-		$(".multar-cadastro").hide();
+		if(internet > 0 ){
 
-		var d = new Date();
-		var n = d.getTime();
-		var codigo = "NAT01"+n;
-		var placa = $("#placa-prefix").val() + $("#placa-sufix").val()
-	  $.post( "http://sandbox.cachina.com.br/transit/index.php",
+			$( "#loading" ).show();
+			$(".multar-cadastro").hide();
 
-	      {
-	      	codigo: codigo,
-	      	marca: $("#marca").val(),
-	        imagem : $("#smallImage").attr('src'),
-	        bairro : $("#bairro").val(),
-	        logradouro : $("#logradouro").val(),
-	        cidade : $("#cidade").val(),
-	        localizacao : $("#localizacao").val(),
-	        placa :  placa,
-	        veiculo :  $("#veiculo").val(),
-	        infracao :  $("#infracao").val(),
-	        obs:   $("#obs").val(),
+			var d = new Date();
+			var n = d.getTime();
+			var codigo = "NAT01"+n;
+			var placa = $("#placa-prefix").val() + $("#placa-sufix").val()
+		  $.post( "http://sandbox.cachina.com.br/transit/index.php",
 
-	      }, 
-	      function( data ) {
-	      	$("#loading" ).hide();
-	        $(".ocorrencia").html(data);
-	        $("#retorno").show();
+		      {
+		      	codigo: codigo,
+		      	marca: $("#marca").val(),
+		        imagem : $("#smallImage").attr('src'),
+		        bairro : $("#bairro").val(),
+		        logradouro : $("#logradouro").val(),
+		        cidade : $("#cidade").val(),
+		        localizacao : $("#localizacao").val(),
+		        placa :  placa,
+		        veiculo :  $("#veiculo").val(),
+		        infracao :  $("#infracao").val(),
+		        obs:   $("#obs").val(),
 
-	  });
+		      }, 
+		      function( data ) {
+		      	$("#loading" ).hide();
+		        $(".ocorrencia").html(data);
+		        $("#retorno").show();
+
+		  });
+
+		}else{
+
+			gravarOcorrencia();
+		}
 
 	}else{
-
-		gravarOcorrencia();
+		alert("MATRICULA NÃO CONFERE!")
+		$.mobile.changePage( "#login", { transition: "slide" });
 	}
 }
 
