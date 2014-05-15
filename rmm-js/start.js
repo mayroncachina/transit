@@ -41,3 +41,10 @@ function onDeviceReady() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
  }
+
+ 
+function login(){
+
+  localStorage.setItem('matricula',$("#matricula").val())
+  $.mobile.changePage( "#home", { transition: "slide" });
+}
