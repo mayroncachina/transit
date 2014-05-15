@@ -18,6 +18,22 @@ function limparTelaOcorrencias(){
 
 }
 
+function multarSemFoto(){
+	$(".tab-img").hide()
+    initialize();
+  	$.mobile.changePage( "#home", { transition: "slide" });
+
+}
+
+function multarComFoto(){
+	
+	$(".tab-img").hide()	
+    capturePhotoEdit();
+    initialize();
+  $.mobile.changePage( "#home", { transition: "slide" });
+
+}
+
 function gravarOcorrencia(){
 
 	var d = new Date();
