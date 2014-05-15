@@ -156,11 +156,16 @@ function exportar(obj){
 
 }
 
+function validar(){
+	$(".multar-cadastro").hide()
+	$("#validacao").show()
+}
+
 function postar(){
 
 	if(localStorage.getItem('matricula') == $("#matricula-conferir").val()){
 		
-		$( "#dialogValidar" ).dialog( "close" );
+		$( "#validacao" ).hide();
 
 		var internet = getNumConnection();
 

@@ -39,15 +39,15 @@
     <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
     <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />
     
-    <gap:splash src="screen/320x480.png" width="320" height="480" />
-    <gap:splash src="screen/640x960.png" width="640" height="960" />
-    <gap:splash src="screen/640x1136.png" width="640" height="1136" />
-    <gap:splash src="screen/768x1204.png" width="768" height="1204 " />
-    <gap:splash src="screen/1536x2048.png" width="1536" height="2048" />
-    <gap:splash src="screen/240x400.png" gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="screen/320x480.png" gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="screen/480x800.png" gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="screen/720x960.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="images/screen/320x480.png" width="320" height="480" />
+    <gap:splash src="images/screen/640x960.png" width="640" height="960" />
+    <gap:splash src="images/screen/640x1136.png" width="640" height="1136" />
+    <gap:splash src="images/screen/768x1204.png" width="768" height="1204 " />
+    <gap:splash src="images/screen/1536x2048.png" width="1536" height="2048" />
+    <gap:splash src="images/screen/240x400.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="images/screen/320x480.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="images/screen/480x800.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="images/screen/720x960.png" gap:platform="android" gap:density="xhdpi" />
 
     <access origin="*"  />
     <content src="index.html" />
