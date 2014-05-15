@@ -20,17 +20,17 @@ function limparTelaOcorrencias(){
 
 function multarSemFoto(){
 	$(".tab-img").hide()
-    initialize();
   	$.mobile.changePage( "#home", { transition: "slide" });
+    initialize();
 
 }
 
 function multarComFoto(){
 	
-	$(".tab-img").hide()	
+	$(".tab-img").show()	
+  	$.mobile.changePage( "#home", { transition: "slide" });
     capturePhotoEdit();
     initialize();
-  $.mobile.changePage( "#home", { transition: "slide" });
 
 }
 
