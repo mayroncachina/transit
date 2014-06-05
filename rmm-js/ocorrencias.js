@@ -229,57 +229,6 @@ function postar(){
 }
 
 
-function postarSemFoto(){
-
-	if(localStorage.getItem('matricula') == $("#matricula-conferir").val()){
-		
-		$( "#validacao" ).hide();
-
-		var internet = getNumConnection();
-
-		if(internet > 0 ){
-
-			$( "#loading" ).show();
-			$(".multar-cadastro").hide();
-
-			var d = new Date();
-			var n = d.getTime();
-			var codigo = "NAT01"+n;
-			var placa = $("#placa-prefix").val() + $("#placa-sufix").val()
-		  $.post( "http://sandbox.cachina.com.br/transit/index.php",
-
-		      {
-		      	codigo: codigo,
-		      	marca: $("#marca").val(),
-		        bairro : $("#bairro").val(),
-		        logradouro : $("#logradouro").val(),
-		        cidade : $("#cidade").val(),
-		        localizacao : $("#localizacao").val(),
-		        placa :  placa,
-		        veiculo :  $("#veiculo").val(),
-		        infracao :  $("#infracao").val(),
-		        obs:   $("#obs").val(),
-
-		      }, 
-		      function( data ) {
-		      	$("#loading" ).hide();
-		        $(".ocorrencia").html(data);
-		        $("#retorno").show();
-
-		  });
-
-		}else{
-
-			gravarOcorrencia();
-		}
-
-	}else{
-		alert("MATRICULA NÃO CONFERE!")
-		$.mobile.changePage( "#login", { transition: "slide" });
-	}
-}
-
-
 function truncate(){
 	lib.truncate();
 	lib.commit();
