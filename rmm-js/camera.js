@@ -21,8 +21,7 @@ function onPhotoDataSuccess(imageData) {
 
 function capturePhotoEdit() {
   // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 25, allowEdit: true,
-    destinationType: destinationType.DATA_URL });
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 25, allowEdit: true, destinationType: destinationType.DATA_URL });
 }
 
 
