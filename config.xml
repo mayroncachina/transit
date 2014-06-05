@@ -1,4 +1,4 @@
-<?xml version='0.229' encoding='utf-8'?>
+<?xml version='0.239' encoding='utf-8'?>
 <widget id="br.com.transit.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>TRANSIT</name>
     <description>
@@ -27,7 +27,13 @@
     <gap:plugin name="org.apache.cordova.camera" version="0.2.4" />
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
 
-    
+    <!-- PERMISSIONSÕES -->
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+
+
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
     <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
