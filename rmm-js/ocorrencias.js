@@ -67,7 +67,8 @@ function gravarOcorrencia(){
 	lib.insert("autoacoes", json);
 
 	lib.commit();
-	$('.multar-cadastro').hide()
+	$('.multar-cadastro').hide();
+	$( "#validacao" ).hide();
 	$(".ocorrencia").html(codigo);
 	$("#retorno").show();
     
