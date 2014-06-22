@@ -42,7 +42,7 @@ function getNumConnection() {
 
     } catch(err) {
 
-        $(".connection").html('USO EXCLUSIVO NO PC');
+        //$(".connection").html('USO EXCLUSIVO NO PC');
         return 0;
     }
 }

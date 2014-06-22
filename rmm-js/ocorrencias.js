@@ -38,7 +38,7 @@ function gravarOcorrencia(){
 
 	var d = new Date();
 	var n = d.getTime();
-	var codigo = "NAT01"+n;
+	var codigo = "NAT"+localStorage.getItem('matricula')+n;
 
 	var lzwCompress = window.lzwCompress;
 
@@ -144,31 +144,37 @@ function exportarMultas(){
 
 function exportar(obj){
 
-	var lzwCompress = window.lzwCompress;
-	var original = lzwCompress.unpack(obj.imagem);
-	  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
+	var internet = getNumConnection();
 
-	      {
-	      	exportar : true,
-	      	codigo : obj.codigo,
-	      	marca: obj.marca,
-	        imagem : original,
-	        bairro : obj.bairro,
-	        logradouro : obj.rua,
-	        cidade : obj.cidade,
-	        localizacao : obj.localicacao,
-	        placa :  obj.placa,
-	        obs:   obj.obs,
-	        veiculo :  "",
-	        infracao :  obj.infracao,
+	if(internet > 0 ){
 
-	      }, 
-	      function( data ) {
+		var lzwCompress = window.lzwCompress;
+		var original = lzwCompress.unpack(obj.imagem);
+		  $.post( "http:///sandbox.cachina.com.br/transit/index.php",
 
-	        $(".log").append("<p>"+data+"</p>");
+		      {
+		      	exportar : true,
+		      	codigo : obj.codigo,
+		      	marca: obj.marca,
+		        imagem : original,
+		        bairro : obj.bairro,
+		        logradouro : obj.rua,
+		        cidade : obj.cidade,
+		        localizacao : obj.localicacao,
+		        placa :  obj.placa,
+		        obs:   obj.obs,
+		        veiculo :  "",
+		        infracao :  obj.infracao,
 
-	  });
+		      }, 
+		      function( data ) {
 
+		        $(".log").append("<p>"+data+"</p>");
+
+		  });
+	}else{
+		alert("SEM CONEXAO");
+	}
 
 }
 
@@ -183,44 +189,11 @@ function postar(){
 		
 		$( "#validacao" ).hide();
 
-		var internet = getNumConnection();
 
-		if(internet > 0 ){
+		$( "#loading" ).show();
+		$(".multar-cadastro").hide();
 
-			$( "#loading" ).show();
-			$(".multar-cadastro").hide();
-
-			var d = new Date();
-			var n = d.getTime();
-			var codigo = "NAT01"+n;
-			var placa = $("#placa-prefix").val() + $("#placa-sufix").val()
-		  $.post( "http://sandbox.cachina.com.br/transit/index.php",
-
-		      {
-		      	codigo: codigo,
-		      	marca: $("#marca").val(),
-		        imagem : $("#smallImage").attr('src'),
-		        bairro : $("#bairro").val(),
-		        logradouro : $("#logradouro").val(),
-		        cidade : $("#cidade").val(),
-		        localizacao : $("#localizacao").val(),
-		        placa :  placa,
-		        veiculo :  $("#veiculo").val(),
-		        infracao :  $("#infracao").val(),
-		        obs:   $("#obs").val(),
-
-		      }, 
-		      function( data ) {
-		      	$("#loading" ).hide();
-		        $(".ocorrencia").html(data);
-		        $("#retorno").show();
-
-		  });
-
-		}else{
-
-			gravarOcorrencia();
-		}
+		gravarOcorrencia();
 
 	}else{
 		alert("MATRICULA NÃO CONFERE!")
