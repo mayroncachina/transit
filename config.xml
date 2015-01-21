@@ -8,51 +8,40 @@
         Mayron Cachina
     </author>
 
-    <preference name="permissions" value="none" />
-    <preference name="phonegap-version" value="3.6.0" />
-    <preference name="orientation" value="portrait" />
+   <preference name="permissions" value="none" />
+    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="false" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
-
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
 
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.camera" version="0.2.4" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
-
-    <!-- PERMISSIONSÕES -->
-    <feature name="http://api.phonegap.com/1.0/camera"/>
-    <feature name="http://api.phonegap.com/1.0/file"/>
-    <feature name="http://api.phonegap.com/1.0/geolocation"/>
-    <feature name="http://api.phonegap.com/1.0/network"/>
-
+    <gap:plugin name="org.apache.cordova.camera"  />
+    <gap:plugin name="org.apache.cordova.network-information" />
 
     <icon src="images/android/icon.png" />
 
-    <icon gap:density="ldpi" gap:platform="android" src="images/android/icon-36-ldpi.png" />
-    <icon gap:density="mdpi" gap:platform="android" src="images/android/icon-48-mdpi.png" />
-    <icon gap:density="hdpi" gap:platform="android" src="images/android/icon-72-hdpi.png" />
-    <icon gap:density="xhdpi" gap:platform="android" src="images/android/icon-96-xhdpi.png" />
-   <!-- 
-    <gap:splash src="images/screen/320x480.png" width="320" height="480" />
-    <gap:splash src="images/screen/640x960.png" width="640" height="960" />
-    <gap:splash src="images/screen/640x1136.png" width="640" height="1136" />
-    <gap:splash src="images/screen/768x1204.png" width="768" height="1204 " />
-    <gap:splash src="images/screen/1536x2048.png" width="1536" height="2048" />
--->
-    <gap:splash src="images/screen/240x400.png" gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="images/screen/320x480.png" gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="images/screen/480x800.png" gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="images/screen/720x960.png" gap:platform="android" gap:density="xhdpi" />
+    <icon gap:platform="android" gap:qualifier="ldpi" src="images/android/android/icon-36-ldpi.png" />
+    <icon gap:platform="android" gap:qualifier="mdpi" src="images/android/android/icon-48-mdpi.png" />
+    <icon gap:platform="android" gap:qualifier="hdpi" src="images/android/android/icon-72-hdpi.png" />
+    <icon gap:platform="android" gap:qualifier="xhdpi" src="images/android/android/icon-96-xhdpi.png" />
 
-    <access origin="*"  />
-    <content src="index.html" />
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/320x480.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/640x940.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/640x1136.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/640x1136.png" />
 
+    <access origin="*" />
 </widget>
