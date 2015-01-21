@@ -1,15 +1,16 @@
-<?xml version='0.239' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <widget id="br.com.transit.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>TRANSIT</name>
+    <name>SuperWifi</name>
     <description>
-        TRANSIT
+        Super Wifi
     </description>
-    <author email="mayron@cachina.com.br" href="http://www.cachina.com.br">
+    <author email="mayroncachina@gmail.com" href="http://cachina.com.br">
         Mayron Cachina
     </author>
 
+
    <preference name="permissions" value="none" />
-    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="phonegap-version" value="3.6.3" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
