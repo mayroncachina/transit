@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="br.com.transit.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>SuperWifi</name>
+    <name>TRANSIT</name>
     <description>
-        Super Wifi
+        TRANSIT
     </description>
     <author email="mayroncachina@gmail.com" href="http://cachina.com.br">
         Mayron Cachina
