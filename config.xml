@@ -34,10 +34,12 @@
     <feature name="http://api.phonegap.com/1.0/network"/>
 
 
-    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
-    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
-    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
-    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" />
+    <icon src="images/android/icon.png" />
+
+    <icon gap:density="ldpi" gap:platform="android" src="images/android/icon-36-ldpi.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="images/android/icon-48-mdpi.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="images/android/icon-72-hdpi.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="images/android/icon-96-xhdpi.png" />
     
     <gap:splash src="images/screen/320x480.png" width="320" height="480" />
     <gap:splash src="images/screen/640x960.png" width="640" height="960" />
